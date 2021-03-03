@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 /////use this as an example. Change back to plants API before portfolio obviously
-import { Ingredients } from "./Form";
+import { IngredientsForm } from "./Form";
 
 export const Cocktails = () => {
   let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/";
@@ -52,7 +52,7 @@ export const Cocktails = () => {
       {/* <button onClick={() => getCocktails(URL)}>Make me a Drink</button>
       <button onClick={() => getByIng(ingURL, "gin")}>Make me a Gin</button> */}
 
-      <Ingredients />
+      <IngredientsForm />
       <br />
     </>
   );
