@@ -3,11 +3,19 @@ import Select from "react-select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { data } from "../Ingredients";
+import { Card } from "semantic-ui-react";
+import { ShowRecipe } from "./Recipe";
 
 export const IngredientsForm = () => {
   let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
   const [drinkArray, setDrinkArray] = useState([]);
+  const [option, setOption] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState("");
+  const [key, setKey] = useState([]);
+  const [val, setVal] = useState([]);
 
+  //Sets drink array for dropdown
   const getByIngredient = (baseURL, option) => {
     axios.get(baseURL + option).then((res) => {
       // console.log(res.data.drinks);
@@ -16,22 +24,39 @@ export const IngredientsForm = () => {
     return drinkArray;
   };
 
-  const [option, setOption] = useState("");
-
+  //Sets Drink Ingredient When Selected from DropDown and displays them
   const handleChange = (selectedOption) => {
     setOption(selectedOption.value);
     getByIngredient(baseURL, selectedOption.value);
   };
 
-  //Recipe
+  //When recipe is selected, recipe is displayed in modal.
 
-  const showRecipe = (drinkID) => {
-    console.log("inside show rec func ", drinkID);
+  const getRecipe = (drinkID) => {
+    let ing = [];
     axios
       .get(
         "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID
       )
-      .then((res) => alert(res.data.drinks[0].strInstructions));
+      .then((res) => {
+        let drink = res.data.drinks[0];
+        setInstructions(Object.values(drink.strInstructions));
+        setKey(Object.keys(drink));
+        setVal(Object.values(drink));
+
+        // setIngredients([...ingredients, values[x]]);
+
+        //if key includes strIngredient and value != null || "" the setIngrd([...ingred, value])
+
+        // return drinkArray;
+      });
+    let x;
+    for (x in key) {
+      if (key[x].includes("strIngredient") && val[x] != null) {
+        ing.push(val[x]);
+      }
+    }
+    setIngredients(ing);
   };
 
   return (
@@ -47,16 +72,20 @@ export const IngredientsForm = () => {
         </div>
       </div>
 
-      {/* Dispplay of Cards */}
+      {/* Display of Cards */}
       <div className="x">
         <div className="drinkContainer">
           {drinkArray.map((drink) => (
             <div>
               <div
                 className="eachDrinkContainer"
-                onClick={() => {
-                  showRecipe(drink.idDrink);
-                }}
+                onClick={() => setTimeout(getRecipe(drink.idDrink), 3000)}
+
+                // {() => {
+                //   {
+                //     getRecipe(drink.idDrink);
+                //   }
+                // }}
               >
                 <div>
                   <li>{drink.strDrink}</li>
@@ -67,6 +96,11 @@ export const IngredientsForm = () => {
                     className="drinkImage"
                     id={drink.idDrink}
                   />
+                  Ingredients:{" "}
+                  {ingredients.map((ingredient) => (
+                    <li>{ingredient}</li>
+                  ))}
+                  Directions: {instructions}
                 </div>
               </div>
             </div>
