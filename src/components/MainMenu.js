@@ -47,18 +47,21 @@ export const MainMenu = () => {
   return (
     <>
       <div className="mainMenu">
-        INSIDE MAIN MENU
         {DrinkMenu.map((drink) => (
-          <Link
-            className="cardContainer"
-            to={drink.url}
-            key={drink.url}
-            onClick={() => {
-              //   drinkDetail(drink.url, drink.type)
-            }}
-          >
-            <div className="drinkName">{drink.type}</div>
-          </Link>
+          <div className="mainMenuContainer">
+            <Link
+              className="cardContainer"
+              to={drink.url}
+              key={drink.url}
+              onClick={() => {
+                //   drinkDetail(drink.url, drink.type)
+              }}
+            >
+              <div className="menuCard">
+                <div className="drinkName">{drink.type}</div>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>{" "}
     </>

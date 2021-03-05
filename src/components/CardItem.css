@@ -5,6 +5,7 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 box-shadow: 2px;
+margin: auto;
 }
 .drinkImage{
     width: 100%;
