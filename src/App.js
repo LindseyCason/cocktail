@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { DrinkItem } from "./components/DrinkItem";
+import { DrinkCard } from "./components/DrinkCard";
 import { DrinkList } from "./components/DrinkList";
 import { RandomDrink } from "./components/RandomDrink";
 import { Nav } from "./components/Nav";
@@ -15,25 +15,27 @@ function App() {
     <Router>
       <div>
         <Nav />
-        <MainMenu />
         <Switch>
+          <Route path="/" exact>
+            <MainMenu />
+          </Route>
           <Route path="/rum">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/vodka">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/gin">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/whisky">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/scotch">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/tequila">
-            <DrinkItem />
+            <DrinkList />
           </Route>
           <Route path="/random">
             <RandomDrink />

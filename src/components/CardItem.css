@@ -1,0 +1,30 @@
+
+.cardContainer{
+max-width: 85vw;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+box-shadow: 2px;
+}
+.drinkImage{
+    width: 100%;
+    border-radius: 3px;
+}
+.drinkCardTitle{
+font-size: 2vh;
+padding: 5px 0px;
+text-align: center;
+color: aliceblue;
+}
+
+.drinkCardContainer{
+    display: flex;
+    max-width: 20vw;
+    margin: 10px;
+
+}
+.drinkCardSection{
+    background-color: rgb(18, 0, 58);
+    border-radius: 3px;
+    box-shadow:  -2px -2px 4px #060606;
+}
