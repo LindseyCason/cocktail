@@ -16,6 +16,8 @@ API{
 }
 
 
+
+Drink Details by ID
 {
 "drinks": [
 {

@@ -2,15 +2,29 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import { data } from "../Ingredients";
+import { data } from "../data/FullIngredientList";
 import { Card } from "semantic-ui-react";
-import { ShowRecipe } from "./Recipe";
+import { Recipe } from "./Recipe";
+import { Home } from "./Home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export const IngredientsForm = () => {
+  let x;
   let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
   const [drinkArray, setDrinkArray] = useState([]);
   const [option, setOption] = useState("");
-  const [drinkObj, setDrinkObj] = useState({});
+  const [drinkID, setDrinkID] = useState("");
+  let drinkObj = {
+    drinkID: "",
+    drinkName: "",
+    drinkImg: "",
+    ingredientsArray: [],
+    measurementArray: [],
+    drinkInstructions: "",
+    drinkCat: "",
+  };
+  // let getRecipe = { Recipe };
+  // const [drinkObj, setDrinkObj] = useState({});
 
   //Sets drink array for dropdown
   const getByIngredient = (baseURL, option) => {
@@ -26,20 +40,14 @@ export const IngredientsForm = () => {
     getByIngredient(baseURL, selectedOption.value);
   };
 
-  //When recipe is selected, recipe is displayed in modal.//NOT FUNCTIONING YET
+  const getDrinkID = (id) => {
+    setDrinkID(id);
+    console.log("Got the ID:", id);
+    // return drinkID;
+  };
 
-  const getRecipe = (drinkID) => {
-    let x;
-    let drinkObject = {
-      drinkID: "",
-      drinkName: "",
-      drinkImg: "",
-      ingredientsArray: [],
-      measurementArray: [],
-      drinkInstructions: "",
-      drinkCat: "",
-    };
-
+  const getDrinkObject = (drinkID) => {
+    console.log(drinkID);
     axios
       .get(
         "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID
@@ -51,24 +59,19 @@ export const IngredientsForm = () => {
 
         for (x in key) {
           if (key[x].includes("strIngredient") && val[x] != null) {
-            drinkObject.ingredientsArray.push(val[x]);
+            drinkObj.ingredientsArray.push(val[x]);
           } else if (key[x].includes("strMeasure") && val[x] != null) {
-            drinkObject.measurementArray.push(val[x]);
+            drinkObj.measurementArray.push(val[x]);
           }
         }
 
-        drinkObject.drinkID = drink.idDrink;
-        drinkObject.drinkName = drink.strDrink;
-        drinkObject.drinkInstructions = drink.strInstructions;
-        drinkObject.drinkImg = drink.strDrinkThumb;
-        drinkObject.drinkCat = drink.strCategory;
-
-        console.log("FULL OBJECT /71", drinkObject);
-        setDrinkObj(drinkObject);
-        console.log("END OF FUNCTION");
+        drinkObj.drinkID = drink.idDrink;
+        drinkObj.drinkName = drink.strDrink;
+        drinkObj.drinkInstructions = drink.strInstructions;
+        drinkObj.drinkImg = drink.strDrinkThumb;
+        drinkObj.drinkCat = drink.strCategory;
+        console.log("inside getDrinkObject");
       });
-
-    return <></>;
   };
 
   return (
@@ -91,22 +94,28 @@ export const IngredientsForm = () => {
             <div>
               <div
                 className="eachDrinkContainer"
-                onClick={() => getRecipe(drink.idDrink)}
+                onClick={() => {
+                  getDrinkID(drink.idDrink), getDrinkObject(drink.idDrink);
+                }}
               >
-                <div>
-                  <li>{drink.strDrink}</li>
-                  <img
-                    src={drink.strDrinkThumb}
-                    alt="Drink"
-                    key="pic"
-                    className="drinkImage"
-                    id={drink.idDrink}
-                  />
-                </div>
+                <Link to={`${"/drink/" + drink.idDrink}`}>
+                  <div>
+                    <li>{drink.strDrink}</li>
+                    <img
+                      src={drink.strDrinkThumb}
+                      alt="Drink"
+                      key="pic"
+                      className="drinkImage"
+                      id={drink.idDrink}
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
           ))}
         </div>
+        <Recipe id={drinkID} name={drinkObj.name} />
+        {/* <Home id={drinkID} /> */}
       </div>
     </>
   );
