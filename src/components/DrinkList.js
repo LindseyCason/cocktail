@@ -5,6 +5,7 @@ import { DrinkMenu } from "../data/DrinkMenu";
 import { DrinkCard } from "./DrinkCard";
 import "./MainMenu.css";
 import { MainMenu } from "./MainMenu";
+import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 
 export const DrinkList = () => {
   const [drinks, setDrinks] = useState([]);
@@ -26,7 +27,25 @@ export const DrinkList = () => {
   }, []);
 
   if (isLoading) {
-    return <div className="Loading">LOADING YOUR DRINK</div>;
+    return (
+      <Segment>
+        <Dimmer active>
+          <Loader size="massive">FETCHING YOUR LIBATIONS</Loader>
+        </Dimmer>
+
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+        <Image src="/images/wireframe/short-paragraph.png" />
+      </Segment>
+    );
   }
 
   return (
