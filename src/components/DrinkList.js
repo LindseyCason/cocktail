@@ -10,8 +10,7 @@ export const DrinkList = () => {
   const [drinks, setDrinks] = useState([]);
 
   const url = useLocation().pathname.split("/")[1];
-  // setUrl(location);
-  console.log("location state", url);
+  // console.log("location state", url);
 
   useEffect(() => {
     axios
@@ -20,9 +19,9 @@ export const DrinkList = () => {
         let info = res.data.drinks;
         setDrinks(info);
         console.log("Drink By Liquor", res.data.drinks);
-        console.log("Drink INFO", drinks);
       });
   }, []);
+
   return (
     <div className="cardContainer">
       {drinks.map((drink) => {
@@ -31,6 +30,7 @@ export const DrinkList = () => {
             name={drink.strDrink}
             img={drink.strDrinkThumb}
             id={drink.idDrink}
+            url={url}
           />
         );
       })}

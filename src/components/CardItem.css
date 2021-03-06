@@ -22,6 +22,8 @@ color: aliceblue;
     display: flex;
     max-width: 20vw;
     margin: 10px;
+    border: 4px dotted pink;
+    
 
 }
 .drinkCardSection{

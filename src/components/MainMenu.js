@@ -53,9 +53,10 @@ export const MainMenu = () => {
               className="cardContainer"
               to={drink.url}
               key={drink.url}
-              onClick={() => {
-                //   drinkDetail(drink.url, drink.type)
-              }}
+              //   onClick={() => {
+              //      drinkDetail(drink.url, drink.type)
+              //   }
+              // }
             >
               <div className="menuCard">
                 <div className="drinkName">{drink.type}</div>

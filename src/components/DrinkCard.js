@@ -1,40 +1,22 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./CardItem.css";
-
-// const Div = styled.div`
-//   color: #fcba03;
-//   width: 25%;
-//   background-color: #e6d8ca;
-//   box-shadow: 5px 5px 5px #8b831260;
-//   opacity: 0.95;
-//   padding: 10px;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-//   margin: 10px;
-//   border-radius: 3px;
-// `;
-// const H1 = styled.h1`
-//   color: #e39c54;
-//   font-family: "Shadows Into Light";
-//   opacity: 1;
-//   border-bottom: 2px solid white;
-//   font-size: 2rem;
-// `;
-
-// const H2 = styled.h2`
-// color: #8B8312;
-// font-family: "Walter Turncoat";
-// opacity 1.;
-// `;
+import { DrinkDetails } from "./DrinkDetails";
+import { Link } from "react-router-dom";
 
 export const DrinkCard = (props) => {
   return (
     <div className="drinkCardContainer">
-      <section id={props.id} className="drinkCardSection">
+      <Link
+        id={props.id}
+        className="drinkCardSection"
+        url={props.url}
+        to={props.id}
+      >
         <img src={props.img} alt="cocktail" className="drinkImage" />{" "}
         <div className="drinkCardTitle">{props.name}</div>
-      </section>
+      </Link>
     </div>
   );
 };
+//STUCK IN AN INFINITE LOOP
