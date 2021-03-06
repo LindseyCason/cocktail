@@ -11,7 +11,7 @@ margin: auto;
 }
 .drinkCardTitle{
 font-size: 3vh;
-padding: 5px 0px;
+padding: 5px;
 text-align: center;
 color: aliceblue;
 }
@@ -31,7 +31,8 @@ color: aliceblue;
 }
 
 .cardBox{
-    margin: 5px;text-align: center;
+    margin: 15px;
+    text-align: center;
 }
 .tableContainer{
     background-color: rgba(0, 255, 255, 0.509);

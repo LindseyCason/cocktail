@@ -13,6 +13,7 @@ import {
   Modal,
   List,
 } from "semantic-ui-react";
+import { MainMenu } from "./MainMenu";
 
 export const RandomDrink = (props) => {
   const [isLoading, setLoading] = useState(true);
@@ -58,79 +59,82 @@ export const RandomDrink = (props) => {
   //   open ? null : window.history.push("/");
 
   return (
-    <Modal
-      onClose={() => {
-        setOpen(false);
-      }}
-      onOpen={() => setOpen(true)}
-      open={open}
-    >
-      <Modal.Header>{newDrink.strDrink}</Modal.Header>
-      <Modal.Content image>
-        <Image size="medium" src={newDrink.strDrinkThumb} wrapped />
-        <Modal.Description>
-          <Header>Here's what you'll need...</Header>
+    <>
+      <Modal
+        onClose={() => {
+          setOpen(false);
+        }}
+        onOpen={() => setOpen(true)}
+        open={open}
+      >
+        <Modal.Header>{newDrink.strDrink}</Modal.Header>
+        <Modal.Content image>
+          <Image size="medium" src={newDrink.strDrinkThumb} wrapped />
+          <Modal.Description>
+            <Header>Here's what you'll need...</Header>
 
-          <List>
-            {ingredientsArray.map((i) => {
-              let mea;
-              measurementArray.map((m) => {
-                mea = m;
-              });
-              return (
-                <List.Item>
-                  <List.Header>{i}</List.Header>
-                  {mea}
-                </List.Item>
-              );
-            })}
-            <p>
+            <List>
+              {ingredientsArray.map((i) => {
+                let mea;
+                measurementArray.map((m) => {
+                  mea = m;
+                });
+                return (
+                  <List.Item>
+                    <List.Header>{i}</List.Header>
+                    {mea}
+                  </List.Item>
+                );
+              })}
               <p>
-                {ingredientsArray.map((ing) => {
-                  return (
-                    <img
-                      src={
-                        "https://www.thecocktaildb.com/images/ingredients/" +
-                        ing +
-                        "-Small.png"
-                      }
-                    />
-                  );
-                })}
-              </p>
+                <p>
+                  {ingredientsArray.map((ing) => {
+                    return (
+                      <img
+                        src={
+                          "https://www.thecocktaildb.com/images/ingredients/" +
+                          ing +
+                          "-Small.png"
+                        }
+                      />
+                    );
+                  })}
+                </p>
 
-              <List.Item>
-                <List.Header>Glass:</List.Header>
-                {newDrink.strGlass}
-              </List.Item>
-              <p></p>
-              <List.Item>
-                <List.Header>Instructions: </List.Header>
-                {newDrink.strInstructions}
-              </List.Item>
-            </p>
-          </List>
-        </Modal.Description>
-      </Modal.Content>
-      <Modal.Actions>
-        {/* <Button color="black" onClick={() => setOpen(false)} href="/">
+                <List.Item>
+                  <List.Header>Glass:</List.Header>
+                  {newDrink.strGlass}
+                </List.Item>
+                <p></p>
+                <List.Item>
+                  <List.Header>Instructions: </List.Header>
+                  {newDrink.strInstructions}
+                </List.Item>
+              </p>
+            </List>
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Actions>
+          {/* <Button color="black" onClick={() => setOpen(false)} href="/">
             Let's Try Something Else
           </Button> */}
-        <Button
-          content="GIVE ME ANOTHER"
-          labelPosition="right"
-          icon="shuffle"
-          onClick={() => setOpen(false)}
-          href={"/random"}
-        />
-        <Button
-          content="TAKE ME HOME"
-          labelPosition="right"
-          icon="home"
-          onClick={() => setOpen(false)}
-          href={"/"}
-        />
-      </Modal.Actions>
-    </Modal>
+          <Button
+            content="GIVE ME ANOTHER"
+            labelPosition="right"
+            icon="shuffle"
+            onClick={() => setOpen(false)}
+            href={"/random"}
+          />
+          <Button
+            content="TAKE ME HOME"
+            labelPosition="right"
+            icon="home"
+            onClick={() => setOpen(false)}
+            href={"/"}
+          />
+        </Modal.Actions>
+      </Modal>
+      <MainMenu />
+    </>
   );
 };

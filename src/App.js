@@ -16,6 +16,9 @@ function App() {
       <div>
         <Nav />
         <Switch>
+          <Route path="/random">
+            <RandomDrink />
+          </Route>
           <Route path="/" exact>
             <MainMenu />
           </Route>
@@ -31,14 +34,17 @@ function App() {
           <Route path="/whisky">
             <DrinkList />
           </Route>
+          <Route path="/champagne">
+            <DrinkList />
+          </Route>
+          <Route path="/brandy">
+            <DrinkList />
+          </Route>
           <Route path="/scotch">
             <DrinkList />
           </Route>
           <Route path="/tequila">
             <DrinkList />
-          </Route>
-          <Route path="/random">
-            <RandomDrink />
           </Route>
 
           <Route path="/:id">

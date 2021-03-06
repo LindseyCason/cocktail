@@ -1,8 +1,10 @@
 export const DrinkMenu = [
-  { type: "Gin", url: "gin", text: "" },
-  { type: "Vodka", url: "vodka", text: "" },
-  { type: "Scotch", url: "scotch", text: "" },
-  { type: "Rum", url: "rum", text: "" },
-  { type: "Tequila", url: "tequila", text: "" },
-  { type: "Whiskey", url: "whisky", text: "" },
+  { type: "Gin", url: "gin", img: "" },
+  { type: "Vodka", url: "vodka", img: "" },
+  { type: "Scotch", url: "scotch", img: "" },
+  { type: "Rum", url: "rum", img: "" },
+  { type: "Tequila", url: "tequila", img: "" },
+  { type: "Whiskey", url: "whisky", img: "" },
+  { type: "Champagne", url: "champagne", img: "" },
+  { type: "Brandy", url: "brandy", img: "" },
 ];

@@ -12,6 +12,8 @@ import {
   Modal,
   List,
 } from "semantic-ui-react";
+import { DrinkMenu } from "../data/DrinkMenu";
+import { MainMenu } from "./MainMenu";
 
 export const DrinkDetails = (props) => {
   const url = useLocation().pathname.split("/")[1];
@@ -114,7 +116,6 @@ export const DrinkDetails = (props) => {
           {/* <Button color="black" onClick={() => setOpen(false)} href="/">
             Let's Try Something Else
           </Button> */}
-          <div>I want to try... </div>
           <Button
             content="GIN"
             labelPosition="right"
@@ -130,18 +131,18 @@ export const DrinkDetails = (props) => {
             href={"/VODKA"}
           />{" "}
           <Button
+            content=" FEELIN LUCKY"
+            labelPosition="right"
+            icon="shuffle"
+            onClick={() => setOpen(false)}
+            href={"/random"}
+          />
+          <Button
             content="RUM"
             labelPosition="right"
             icon="tint"
             onClick={() => setOpen(false)}
             href={"/rum"}
-          />{" "}
-          <Button
-            content="WHISKY"
-            labelPosition="right"
-            icon="tint"
-            onClick={() => setOpen(false)}
-            href={"/whisky"}
           />{" "}
           <Button
             content="TEQUILA"
@@ -152,6 +153,7 @@ export const DrinkDetails = (props) => {
           />
         </Modal.Actions>
       </Modal>
+      <MainMenu />
     </>
   );
 };
