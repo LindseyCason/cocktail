@@ -6,17 +6,23 @@ import { Link } from "react-router-dom";
 
 export const DrinkCard = (props) => {
   return (
-    <div className="drinkCardContainer">
-      <Link
-        id={props.id}
-        className="drinkCardSection"
-        url={props.url}
-        to={props.id}
-      >
-        <img src={props.img} alt="cocktail" className="drinkImage" />{" "}
-        <div className="drinkCardTitle">{props.name}</div>
-      </Link>
-    </div>
+    <>
+      <div className="drinkCardContainer">
+        <Link
+          id={props.id}
+          className="drinkCardSection"
+          url={props.url}
+          to={props.id}
+        >
+          <img
+            src={props.img + "/preview"}
+            alt="cocktail"
+            className="drinkImage"
+          />{" "}
+          <div className="drinkCardTitle">{props.name}</div>
+        </Link>
+      </div>{" "}
+      {/* <DrinkDetails name={props.name} id={props.id} /> */}
+    </>
   );
 };
-//STUCK IN AN INFINITE LOOP

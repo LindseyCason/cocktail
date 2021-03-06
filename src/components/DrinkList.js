@@ -8,6 +8,7 @@ import { MainMenu } from "./MainMenu";
 
 export const DrinkList = () => {
   const [drinks, setDrinks] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   const url = useLocation().pathname.split("/")[1];
   // console.log("location state", url);
@@ -18,9 +19,15 @@ export const DrinkList = () => {
       .then((res) => {
         let info = res.data.drinks;
         setDrinks(info);
-        console.log("Drink By Liquor", res.data.drinks);
+        setLoading(false);
+
+        // console.log("Drink By Liquor", res.data.drinks);
       });
   }, []);
+
+  if (isLoading) {
+    return <div className="Loading">LOADING YOUR DRINK</div>;
+  }
 
   return (
     <div className="cardContainer">

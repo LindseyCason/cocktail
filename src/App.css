@@ -6,42 +6,6 @@
   height: 40vmin;
   pointer-events: none;
 }
-
-
-.drinkContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 800px;
-  align-content: center;
-}
-.x{
-display: flex;
-justify-content: center;
-}
-.drinkImage{
-  max-width: 15vw;
-  max-height: 30vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-li{
-  list-style-type: none;
-  text-align: center;
-  max-width: 15vw;
-}
-.eachDrinkContainer{
-  padding: 10px;
-background-color: #fff;
-box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.146);
-border-radius: 2px;
-margin: 10px;
-}
-
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -70,4 +34,9 @@ margin: 10px;
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  background-image: linear-gradient(180deg, rgb(0, 58, 75), rgb(0, 0, 0) )!important;
+
 }
