@@ -5,6 +5,4 @@ export const DrinkMenu = [
   { type: "Rum", url: "rum", text: "" },
   { type: "Tequila", url: "tequila", text: "" },
   { type: "Whiskey", url: "whisky", text: "" },
-  { type: "Non-Alcoholic", url: "non_alcoholic", text: "" },
-  { type: "Random Drink", url: "random", text: "" },
 ];

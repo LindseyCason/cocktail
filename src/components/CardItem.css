@@ -109,3 +109,9 @@ text-align: justify;
 .flexDiv{display: flex;
     flex-direction: column;
     align-items: center;}
+
+    /* SEMANTIC OVERRIDE */
+
+    .ui.modal>.actions{
+        text-align: center !important;
+    }

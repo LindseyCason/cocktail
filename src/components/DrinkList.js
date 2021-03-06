@@ -7,12 +7,12 @@ import "./MainMenu.css";
 import { MainMenu } from "./MainMenu";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 
+//THIS IS FOR THE LIST OF DRINK PER
 export const DrinkList = () => {
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   const url = useLocation().pathname.split("/")[1];
-  // console.log("location state", url);
 
   useEffect(() => {
     axios
@@ -21,8 +21,6 @@ export const DrinkList = () => {
         let info = res.data.drinks;
         setDrinks(info);
         setLoading(false);
-
-        // console.log("Drink By Liquor", res.data.drinks);
       });
   }, []);
 
@@ -32,18 +30,6 @@ export const DrinkList = () => {
         <Dimmer active>
           <Loader size="massive">FETCHING YOUR LIBATIONS</Loader>
         </Dimmer>
-
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
-        <Image src="/images/wireframe/short-paragraph.png" />
       </Segment>
     );
   }

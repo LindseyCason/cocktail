@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { DrinkMenu } from "../data/DrinkMenu";
 import { DrinkList } from "./DrinkList";
+import { Button } from "semantic-ui-react";
 import "./MainMenu.css";
 
 export const MainMenu = () => {
@@ -47,6 +48,7 @@ export const MainMenu = () => {
   return (
     <>
       <div className="mainMenu">
+        <Button href="/random">Click Me</Button>
         {DrinkMenu.map((drink) => (
           <div className="mainMenuContainer">
             <Link

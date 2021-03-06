@@ -40,9 +40,9 @@ function App() {
           <Route path="/random">
             <RandomDrink />
           </Route>
-          <Route path="/non-alcoholic">
-            <NonAlcoholic />
-          </Route>
+          {/* <Route path="/:search">
+            <DrinkList />
+          </Route> */}
           <Route path="/:id">
             <DrinkDetails />
           </Route>
