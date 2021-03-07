@@ -43,9 +43,11 @@ function App() {
           <Route path="/tequila">
             <DrinkList />
           </Route>
-
           <Route path="/:id">
             <DrinkDetails />
+          </Route>
+          <Route path="/search/">
+            <DrinkList />
           </Route>
         </Switch>
         <Footer />
