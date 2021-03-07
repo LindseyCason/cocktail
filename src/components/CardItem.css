@@ -116,3 +116,18 @@ text-align: justify;
     .ui.modal>.actions{
         text-align: center !important;
     }
+.Segment{
+background-color: aqua;
+}
+
+.bttnClock:hover {
+    /* transform: scale(1.1); */
+    transform: rotate(5deg);
+border-color: 2px solid springgreen;    
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  .bttnCoClock:hover{
+    transform: rotate(-5deg);
+
+  }

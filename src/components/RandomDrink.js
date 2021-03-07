@@ -12,6 +12,7 @@ import {
   Header,
   Modal,
   List,
+  Transition,
 } from "semantic-ui-react";
 import { MainMenu } from "./MainMenu";
 
@@ -19,6 +20,12 @@ export const RandomDrink = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [newDrink, setNewDrink] = useState({});
   const [open, setOpen] = React.useState(true);
+  const [tran, setTran] = useState({
+    animation: "jiggle",
+    duration: 500,
+    visible: true,
+  });
+
   let x;
   let ingredientsArray = [];
   let measurementArray = [];
@@ -48,7 +55,7 @@ export const RandomDrink = (props) => {
       <Segment>
         <Dimmer active>
           <Loader size="massive" inline="centered">
-            FETCHING YOUR LIBATION
+            POURING IT UP!
           </Loader>
         </Dimmer>
       </Segment>
@@ -118,19 +125,23 @@ export const RandomDrink = (props) => {
           {/* <Button color="black" onClick={() => setOpen(false)} href="/">
             Let's Try Something Else
           </Button> */}
+
           <Button
             content="GIVE ME ANOTHER"
             labelPosition="right"
             icon="shuffle"
             onClick={() => setOpen(false)}
             href={"/random"}
+            className="bttnClock"
           />
+
           <Button
             content="TAKE ME HOME"
             labelPosition="right"
             icon="home"
             onClick={() => setOpen(false)}
             href={"/"}
+            className="bttnCoClock"
           />
         </Modal.Actions>
       </Modal>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, Segment } from "semantic-ui-react";
+import { Menu, Segment, Button } from "semantic-ui-react";
 
 export const Nav = () => {
   return (
@@ -8,13 +8,13 @@ export const Nav = () => {
     //   <Link to="/">Menu</Link>
     // </div>
 
-    <div className="navContainer">
-      <a href="/">
-        <div>HOME</div>
-      </a>
+    <Segment inverted padded="none" textAlign="right">
       <a href="/random">
-        <div>RANDOM DRINK</div>
+        <Button color="google plus">RANDOM DRINK</Button>
       </a>
-    </div>
+      <a href="/">
+        <Button color="google plus">HOME</Button>
+      </a>
+    </Segment>
   );
 };

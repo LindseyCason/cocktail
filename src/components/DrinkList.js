@@ -28,7 +28,7 @@ export const DrinkList = () => {
     return (
       <Segment>
         <Dimmer active>
-          <Loader size="massive">FETCHING YOUR LIBATIONS</Loader>
+          <Loader size="massive">SEARCHING THE BAR!</Loader>
         </Dimmer>
       </Segment>
     );

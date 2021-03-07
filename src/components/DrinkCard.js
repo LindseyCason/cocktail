@@ -8,16 +8,11 @@ import { Card, Icon, Image } from "semantic-ui-react";
 export const DrinkCard = (props) => {
   return (
     <div className="cardBox">
-      <Card href={props.id}>
+      <Card href={props.id} raised="true">
         <Image src={props.img + "/preview"} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>{props.name}</Card.Header>
-          <Card.Meta>
-            {/* <span className='date'>Joined in 2015</span> */}
-          </Card.Meta>
-          {/* <Card.Description>
-        Matthew is a musician living in Nashville.
-      </Card.Description> */}
+          <Card.Header extra>{props.name}</Card.Header>
+          <Card.Meta></Card.Meta>
         </Card.Content>
       </Card>
     </div>

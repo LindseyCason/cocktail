@@ -47,13 +47,20 @@ export const DrinkDetails = (props) => {
 
   if (isLoading) {
     return (
-      <Segment>
-        <Dimmer active>
-          <Loader size="massive" inline="centered">
-            FETCHING YOUR LIBATION
-          </Loader>
-        </Dimmer>
-      </Segment>
+      <>
+        <Segment>
+          <Dimmer active>
+            <Loader size="massive" inline="centered">
+              POURING IT UP!
+            </Loader>
+          </Dimmer>
+          {/* <Image src="https://specials-images.forbesimg.com/imageserve/5e7e4380f40ef500079f869b/960x0.jpg?fit=scale" />
+        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
+        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" /> */}
+
+          {/* <Loader active inline="centered" /> */}
+        </Segment>
+      </>
     );
   }
   console.log(newDrink);
@@ -122,6 +129,7 @@ export const DrinkDetails = (props) => {
             icon="tint"
             onClick={() => setOpen(false)}
             href={"/gin"}
+            className="bttnClock"
           />{" "}
           <Button
             content="VODKA"
@@ -129,6 +137,7 @@ export const DrinkDetails = (props) => {
             icon="tint"
             onClick={() => setOpen(false)}
             href={"/VODKA"}
+            className="bttnCoClock"
           />{" "}
           <Button
             content=" FEELIN LUCKY"
@@ -136,6 +145,7 @@ export const DrinkDetails = (props) => {
             icon="shuffle"
             onClick={() => setOpen(false)}
             href={"/random"}
+            className="bttnClock"
           />
           <Button
             content="RUM"
@@ -143,6 +153,7 @@ export const DrinkDetails = (props) => {
             icon="tint"
             onClick={() => setOpen(false)}
             href={"/rum"}
+            className="bttnCoClock"
           />{" "}
           <Button
             content="TEQUILA"
@@ -150,6 +161,7 @@ export const DrinkDetails = (props) => {
             icon="tint"
             onClick={() => setOpen(false)}
             href={"/tequila"}
+            className="bttnClock"
           />
         </Modal.Actions>
       </Modal>
