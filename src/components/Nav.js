@@ -8,13 +8,13 @@ export const Nav = () => {
     //   <Link to="/">Menu</Link>
     // </div>
 
-    <Segment inverted padded="none" textAlign="right">
-      <a href="/random">
+    <div className="NavContainer">
+      <a href="/random" className="navBttn">
         <Button color="google plus">RANDOM DRINK</Button>
       </a>
-      <a href="/">
+      <a href="/" className="navBttn">
         <Button color="google plus">HOME</Button>
       </a>
-    </Segment>
+    </div>
   );
 };

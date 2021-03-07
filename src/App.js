@@ -54,7 +54,6 @@ function App() {
             <ErrorModal />
           </Route> */}
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

@@ -131,3 +131,10 @@ border-color: 2px solid springgreen;
     transform: rotate(-5deg);
 
   }
+/* SEMANTIC FIX */
+.ui.card:first-child {
+    margin-top: 0em;
+  }
+  .ui.card:last-child {
+    margin-bottom: 0em;
+  }

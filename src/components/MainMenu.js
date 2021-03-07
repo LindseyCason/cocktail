@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { DrinkMenu } from "../data/DrinkMenu";
 import { DrinkList } from "./DrinkList";
-import { Card, Image, Segment } from "semantic-ui-react";
+import { Card, Image, Segment, Button } from "semantic-ui-react";
 import "./MainMenu.css";
 import "../images/random-Medium.png";
 import { Search } from "./Search";
@@ -25,31 +25,45 @@ export const MainMenu = () => {
     console.log("inside the submit function on main menu ", search);
   };
 
+  const handleKeypress = (e) => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      handleSubmit();
+    }
+  };
+
   if (!isLoading) {
     return <Search url={search} />;
   }
 
   return (
     <>
-      <Segment basic>
-        <Image src="https://i.pinimg.com/originals/15/aa/a1/15aaa168198dc23de0a2fb1edacc4a8a.jpg" />
-      </Segment>
-      <Segment>
+      <div className="topMainMenuContainer">
+        <img
+          className="homeImage"
+          src="https://i.pinimg.com/originals/15/aa/a1/15aaa168198dc23de0a2fb1edacc4a8a.jpg"
+        />
         {/* search */}
-        <div class="ui search">
+
+        <div className="searchDiv overlay">
           <input
-            class="prompt"
+            className="searchBox"
             type="text"
             value={search}
-            placeholder="Search"
+            placeholder=""
             onChange={handleInputChange}
           />
-          <button href={`/${search}`} onClick={handleSubmit}>
+          <Button
+            color="google plus"
+            href={`/${search}`}
+            onClick={handleSubmit}
+            onKeyPress={handleKeypress}
+          >
             SEARCH
-          </button>
-        </div>{" "}
+          </Button>
+        </div>
         {/* end search */}
-      </Segment>
+      </div>
       <div className="mainMenu">
         {DrinkMenu.map((drink) => {
           return (

@@ -22,15 +22,70 @@
         margin:auto    
     }
 
-    .navContainer{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+    .NavContainer{
         background-color: black;
-        height: 10vh;
+        display: flex;
+        justify-content: flex-end;
         color:aliceblue;
-        font-size: large;
         font-weight: 900;
-        margin-bottom: 20px;
-        margin: 20px;
+        margin: 5px;
+        padding: 5px;
+        /* overflow: hidden; */
+        position: sticky;
+        top:0;
+        width: 99%;
+        z-index: 10;
     }
+
+   .topMainMenuContainer{
+        width: 100%;
+        /* position: relative; */
+        border-top: .10px solid rgb(255, 255, 255);
+        position: sticky;
+        top: 0;
+    }
+    .homeImage{
+        width: 100%;
+        position: relative;
+        margin: 20px
+    }
+    .searchDiv{
+    /* border-top: 2px solid salmon; */
+    border: .10px solid white;
+    width: 40%;
+    position:absolute;
+    background-color: rgba(255, 255, 255, 0.139);
+    border-radius: 0px 0 0 20px;
+    height: 40vh;
+    top:0;
+    right:0;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+    text-align: center;
+    }
+
+    .searchDiv:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    }
+    input{
+        background-color: rgb(0, 0, 0);
+        height: 5vh;
+        color:aliceblue;
+        z-index: 90;
+        width: 20vw;
+        padding: 5px;
+        margin: 5px;
+    }
+  ::placeholder{
+      color: white;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: large;
+  }
+
+
+ 
+
+   
