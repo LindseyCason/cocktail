@@ -12,11 +12,14 @@ import {
   List,
 } from "semantic-ui-react";
 import { DrinkCard } from "./DrinkCard";
+import { ErrorModal } from "./ErrorModal";
 
 export const Search = (props) => {
   const [search, setSearch] = useState("");
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isError, setIsError] = useState(0);
+  const [e, setE] = useState("");
 
   useEffect(() => {
     console.log("we're inside the axios");
@@ -25,10 +28,20 @@ export const Search = (props) => {
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + props.url
       )
       .then((res) => {
-        let info = res.data.drinks;
-        console.log("RESULTS", info);
-        setDrinks(info);
-        setLoading(false);
+        console.log(res);
+        if (res.data.length == 0) {
+          setLoading(false);
+          setIsError(0);
+          console.log("ER", isError);
+          setE("No Ingredient Found");
+        } else {
+          let info = res.data.drinks;
+          console.log("RESULTS", info);
+          setDrinks(info);
+          setIsError(1);
+
+          setLoading(false);
+        }
       });
   }, []);
 
@@ -45,18 +58,24 @@ export const Search = (props) => {
   }
 
   return (
-    <div className="cardContainer">
-      {drinks.map((drink) => {
-        console.log("inside the map");
-        return (
-          <DrinkCard
-            name={drink.strDrink}
-            img={drink.strDrinkThumb}
-            id={drink.idDrink}
-            url={props.url}
-          />
-        );
-      })}
-    </div>
+    <>
+      {isError < 1 ? (
+        <ErrorModal error={e} />
+      ) : (
+        <div className="cardContainer">
+          {drinks.map((drink) => {
+            console.log("inside the map");
+            return (
+              <DrinkCard
+                name={drink.strDrink}
+                img={drink.strDrinkThumb}
+                id={drink.idDrink}
+                url={props.url}
+              />
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };

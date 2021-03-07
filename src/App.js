@@ -6,6 +6,7 @@ import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { MainMenu } from "./components/MainMenu";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { ErrorModal } from "./components/ErrorModal";
 
 function App() {
   return (
@@ -49,6 +50,9 @@ function App() {
           <Route path="/search/">
             <DrinkList />
           </Route>
+          {/* <Route path="/error">
+            <ErrorModal />
+          </Route> */}
         </Switch>
         <Footer />
       </div>

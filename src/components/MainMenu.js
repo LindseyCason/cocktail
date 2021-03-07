@@ -44,9 +44,9 @@ export const MainMenu = () => {
             placeholder="Search"
             onChange={handleInputChange}
           />
-          <a href={`/${search}`} onClick={handleSubmit}>
-            CLICK ME
-          </a>
+          <button href={`/${search}`} onClick={handleSubmit}>
+            SEARCH
+          </button>
         </div>{" "}
         {/* end search */}
       </Segment>
