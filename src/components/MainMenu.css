@@ -1,3 +1,19 @@
+/* font-family: 'Rammetto One', cursive; */
+/* font-family: 'Gravitas One', cursive; */
+
+
+/* breakpoints 1280, 1024, 768, 480 */
+
+
+.logo{
+    height: 200px;
+    /* border-color: 2px solid red; */
+    z-index: 15;
+    top:-10px;
+    left:100px;
+    position: absolute;
+}
+
 .drinkName{font-size: 2vh;
     padding: 5px 0px;
     text-align: center;
@@ -23,69 +39,312 @@
     }
 
     .NavContainer{
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.55);
         display: flex;
         justify-content: flex-end;
-        color:aliceblue;
-        font-weight: 900;
-        margin: 5px;
-        padding: 5px;
-        /* overflow: hidden; */
+        box-shadow: 0px 0px 20px 1px rgb(255, 255, 255);
+        /* color:rgb(255, 255, 255); */
+        border-radius: 0px 0px 20px 20px;
         position: sticky;
         top:0;
-        width: 99%;
+        width: 80%;
         z-index: 10;
+        margin: auto;
+        padding-right:30px ;
+    }
+    .navButton{
+        margin: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        color:#00d595;
+        font-weight: 900;
+        font-size: large;
+        width: 180px;
+        height: 50px;
+        background-color: rgb(227, 3, 189);
+        border-radius: 5px;
+        border: none;
+        text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  
     }
 
    .topMainMenuContainer{
         width: 100%;
-        /* position: relative; */
-        border-top: .10px solid rgb(255, 255, 255);
-        position: sticky;
         top: 0;
+        height:100vh
     }
     .homeImage{
-        width: 100%;
-        position: relative;
-        margin: 20px
+        height: 100%;
+        top:0;
     }
     .searchDiv{
-    /* border-top: 2px solid salmon; */
-    border: .10px solid white;
-    width: 40%;
+    border-right: none;
     position:absolute;
-    background-color: rgba(255, 255, 255, 0.139);
-    border-radius: 0px 0 0 20px;
-    height: 40vh;
-    top:0;
-    right:0;
-    z-index: 9;
+    /* background-color: rgba(255, 255, 255, 0.31); */
+    border-radius: 20px 0 0 20px;    
+    width: 350px;
+    height: 350px;
+    padding: 50px;
+    top:40px;
+    right:80px;
+    z-index: 0;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* flex-direction: row; */
-    text-align: center;
+    }
+    .searchText{
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 10vh;
+    height: 28vh;
+    line-height: 10vh; 
+    margin: 10px;   
     }
 
-    .searchDiv:hover{
-    background-color: rgba(255, 255, 255, 0.2);
-    }
     input{
-        background-color: rgb(0, 0, 0);
-        height: 5vh;
-        color:aliceblue;
+        background-color: rgba(0, 0, 0, 0.79);
+        height: 50px;
+        color:rgb(0, 0, 0);
         z-index: 90;
-        width: 20vw;
+        width: 200px;
         padding: 5px;
         margin: 5px;
+        /* border:none; */
+        text-align: center;
+        border-radius: 4px;
+
     }
   ::placeholder{
       color: white;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-family: 'Ubuntu', sans-serif;
       font-size: large;
+      font-weight: 900;
+  }
+  .searchButton{
+      margin: 10px;
+      font-family: 'Gravitas One', sans-serif;
+      color: #00d595;
+      font-size: large;
+      width: 180px;
+      height: 50px;
+      background-color: #e303bd;
+      border-radius: 5px;
+      border: none;
+      text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  }
+
+  .iconContainer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    top: -100px
+    /* margin-top: 10px; */
+}
+
+
+.iconImage {
+    bottom: 143px;
+    position: absolute;
+    height: 10vh;
+    animation: updown 2s ease infinite;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+}
+.welcome{
+    color: white;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    position: absolute;
+    top:120px;
+    left:0px;
+    padding: 50px;
+    text-align: left ;
+    width:350px;
+    height: 350px;
+    font-family: 'Rammetto One', cursive;
+    background-color: rgba(147, 147, 147, 0.482);
+    /* border: 1px solid rgb(255, 255, 255); */
+    border-left:none;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.welcomeText{
+    font-size: 1.5rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+}
+
+.footContainer{
+bottom:0;
+width: 80%;
+height: 70px;
+z-index: 10;
+margin: auto;
+margin-top: 50px;
+display: flex;
+justify-content: center;
+text-align: center;
+border-radius: 20px 20px 0px 0px;
+box-shadow: 0px 0px 20px 1px rgb(255, 255, 255);
+
+}
+
+.footerIcon{
+color:white;
+font-size: 50px;
+}
+
+
+@keyframes updown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+ .downArrow{
+     color: white;
+     font-size: 10vh;
+ }
+
+   /* MEDIA QUERIES */
+
+   @media screen and (max-width: 770px) {
+      .topMainMenuContainer{
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap-reverse;
+            height: 20vh;
+        }
+        .searchDiv {
+          width: fit-content;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: right;
+          text-align: right; 
+          right: 0px;
+          top: 30px;
+          padding: 60px;
+          height: fit-content;   
+    }
+    .navButton{
+        width: fit-content;
+    }
+      
+        .NavContainer{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-left: 30px;
+        }
+        .homeImage{
+            width:100%
+        }
+        .iconContainer{visibility: collapse ;}
+    
+        .welcome{
+            line-height: 2.5rem;
+            border-radius: 20px;
+            top: 220px;
+            width: fit-content;
+            height: fit-content;
+        }
+        .logo{
+            position: absolute;
+            left: 10px;
+        }
+
   }
 
 
- 
 
+  @media screen and (max-width: 480px){
    
+
+
+
+    @keyframes updown {
+        0% {
+          transform: translateY(-50%);
+        }
+      
+        50% {
+          transform: translateY(50%);
+        }
+      
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+
+
+
+
+      .searchDiv{
+          width: 100%;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center; 
+          height: 35vh;
+          top: 200px;   
+      }
+      .homeImage{
+          width: 100%;
+      }
+      .logo{
+          position: absolute;
+          top: 30px;
+          left: 53px;
+      }
+      .welcome{
+          position: absolute;
+          top: 400px;
+          width: 100%;
+          height: 300px;
+      }
+
+.iconContainer{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    top: 50px;
+    visibility: collapse;
+}
+      .iconImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: none;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+      }
+      .topMainMenuContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 60vh
+      }
+      
+  }

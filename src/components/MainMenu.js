@@ -7,7 +7,7 @@ import { Card, Image, Segment, Button } from "semantic-ui-react";
 import "./MainMenu.css";
 import "../images/random-Medium.png";
 import { Search } from "./Search";
-
+import { FaAngleDoubleDown, FaSearch } from "react-icons/fa";
 export const MainMenu = () => {
   const [search, setSearch] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -25,10 +25,13 @@ export const MainMenu = () => {
     console.log("inside the submit function on main menu ", search);
   };
 
-  const handleKeypress = (e) => {
+  const checkSubmit = (e) => {
     //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
+    let key = e;
+    console.log(key);
+    if (key === 13) {
       handleSubmit();
+      console.log("ENTER");
     }
   };
 
@@ -38,31 +41,46 @@ export const MainMenu = () => {
 
   return (
     <>
+      <img
+        className="homeImage"
+        src="https://i.pinimg.com/originals/15/aa/a1/15aaa168198dc23de0a2fb1edacc4a8a.jpg"
+      />
       <div className="topMainMenuContainer">
-        <img
-          className="homeImage"
-          src="https://i.pinimg.com/originals/15/aa/a1/15aaa168198dc23de0a2fb1edacc4a8a.jpg"
-        />
-        {/* search */}
+        <div className="welcome">
+          WELCOME!
+          <div className="welcomeText">
+            Search any ingredient on the right, scroll down for some quick
+            options or choose a random drink! Cheers!<p></p>
+          </div>
+        </div>
 
-        <div className="searchDiv overlay">
+        {/* search */}
+        <div className="searchDiv">
+          {/* <div className="searchText" onKeyUp={checkSubmit}>
+          </div> */}
           <input
             className="searchBox"
             type="text"
             value={search}
-            placeholder=""
+            placeholder="Ingredient Search"
             onChange={handleInputChange}
           />
-          <Button
+          <button
+            className="searchButton"
             color="google plus"
             href={`/${search}`}
             onClick={handleSubmit}
-            onKeyPress={handleKeypress}
           >
-            SEARCH
-          </Button>
+            <FaSearch />
+          </button>
         </div>
         {/* end search */}
+      </div>
+
+      <div className="iconContainer">
+        <div className="iconImage">
+          <FaAngleDoubleDown className="downArrow" />
+        </div>
       </div>
       <div className="mainMenu">
         {DrinkMenu.map((drink) => {

@@ -50,10 +50,8 @@ function App() {
           <Route path="/search/">
             <DrinkList />
           </Route>
-          {/* <Route path="/error">
-            <ErrorModal />
-          </Route> */}
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

@@ -80,14 +80,11 @@ export const DrinkDetails = (props) => {
 
             <List>
               {ingredientsArray.map((i) => {
-                let mea;
-                measurementArray.map((m) => {
-                  mea = m;
-                });
+                let m = ingredientsArray.indexOf(i);
                 return (
                   <List.Item>
                     <List.Header>{i}</List.Header>
-                    {mea}
+                    {measurementArray[m]}
                   </List.Item>
                 );
               })}
@@ -120,25 +117,6 @@ export const DrinkDetails = (props) => {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          {/* <Button color="black" onClick={() => setOpen(false)} href="/">
-            Let's Try Something Else
-          </Button> */}
-          <Button
-            content="GIN"
-            labelPosition="right"
-            icon="tint"
-            onClick={() => setOpen(false)}
-            href={"/gin"}
-            className="bttnClock"
-          />{" "}
-          <Button
-            content="VODKA"
-            labelPosition="right"
-            icon="tint"
-            onClick={() => setOpen(false)}
-            href={"/VODKA"}
-            className="bttnCoClock"
-          />{" "}
           <Button
             content=" FEELIN LUCKY"
             labelPosition="right"
@@ -148,20 +126,12 @@ export const DrinkDetails = (props) => {
             className="bttnClock"
           />
           <Button
-            content="RUM"
+            content="TAKE ME HOME"
             labelPosition="right"
-            icon="tint"
+            icon="home"
             onClick={() => setOpen(false)}
-            href={"/rum"}
+            href={"/"}
             className="bttnCoClock"
-          />{" "}
-          <Button
-            content="TEQUILA"
-            labelPosition="right"
-            icon="tint"
-            onClick={() => setOpen(false)}
-            href={"/tequila"}
-            className="bttnClock"
           />
         </Modal.Actions>
       </Modal>

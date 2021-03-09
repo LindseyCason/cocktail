@@ -82,14 +82,11 @@ export const RandomDrink = (props) => {
 
             <List>
               {ingredientsArray.map((i) => {
-                let mea;
-                measurementArray.map((m) => {
-                  mea = m;
-                });
+                let m = ingredientsArray.indexOf(i);
                 return (
                   <List.Item>
                     <List.Header>{i}</List.Header>
-                    {mea}
+                    {measurementArray[m]}
                   </List.Item>
                 );
               })}
