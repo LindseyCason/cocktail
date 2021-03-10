@@ -23,6 +23,7 @@ export const Search = (props) => {
 
   useEffect(() => {
     console.log("we're inside the axios");
+    console.log("URL PROPS", props.url);
     axios
       .get(
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + props.url
@@ -30,13 +31,30 @@ export const Search = (props) => {
       .then((res) => {
         console.log(res);
         if (res.data.length == 0) {
-          setLoading(false);
-          setIsError(0);
-          console.log("ER", isError);
-          setE("No Ingredient Found");
+          axios
+            .get(
+              "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" +
+                props.url
+            )
+            .then((res) => {
+              console.log("drink search hit ", res);
+
+              if (res.data.drinks === null) {
+                setLoading(false);
+                setIsError(0);
+                console.log("ER", isError);
+                setE("No Ingredient or Drink Found");
+              } else {
+                let info = res.data.drinks;
+                console.log("RESULTS", info);
+                setDrinks(info);
+                setIsError(1);
+                setLoading(false);
+              }
+            });
         } else {
           let info = res.data.drinks;
-          console.log("RESULTS", info);
+          console.log("ingredient search hit ", info);
           setDrinks(info);
           setIsError(1);
 

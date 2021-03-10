@@ -104,7 +104,7 @@
     input{
         background-color: rgba(0, 0, 0, 0.79);
         height: 50px;
-        color:rgb(0, 0, 0);
+        color: white;
         z-index: 90;
         width: 200px;
         padding: 5px;
@@ -309,8 +309,9 @@ font-size: 50px;
       }
       .logo{
           position: absolute;
-          top: 30px;
+          top: 25px;
           left: 53px;
+          height: 50%;
       }
       .welcome{
           position: absolute;
@@ -346,5 +347,12 @@ font-size: 50px;
         text-align: center;
         height: 60vh
       }
-      
+      .cardContainer{
+          position: relative;
+          top: 160px;
+          margin-bottom: 160px;
+      }
+      .footer{
+          visibility: hidden;
+      }
   }
