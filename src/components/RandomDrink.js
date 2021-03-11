@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./CardItem.css";
-import { DrinkDetails } from "./DrinkDetails";
+import { DrinkDetails } from "../components/DrinkDetails";
 import { Link, withRouter, Route } from "react-router-dom";
 import {
   Dimmer,
@@ -14,7 +14,7 @@ import {
   List,
   Transition,
 } from "semantic-ui-react";
-import { MainMenu } from "./MainMenu";
+import { MainMenu } from "../components/MainMenu";
 
 export const RandomDrink = (props) => {
   const [isLoading, setLoading] = useState(true);

@@ -6,13 +6,14 @@ import {
   FaEnvelope,
   FaEnvelopeSquare,
   FaGithubSquare,
+  FaPhoneSquare,
   FaRegEnvelopeOpen,
   FaTwitterSquare,
 } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <div className="footContainer">
+    <div className="footContainer" id="footer">
       <a href="mailto:lindseyacason@gmail.com" className="footerIcon">
         <FaEnvelopeSquare />
       </a>
@@ -21,6 +22,9 @@ export const Footer = () => {
       </a>
       <a href="https://www.github.com/lindseycason" className="footerIcon">
         <FaGithubSquare />
+      </a>
+      <a href="tel:15045643792" className="footerIcon">
+        <FaPhoneSquare />
       </a>
     </div>
   );

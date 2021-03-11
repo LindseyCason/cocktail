@@ -38,7 +38,7 @@ export const MainMenu = () => {
 
   return (
     <>
-      <div className="topMainMenuContainer">
+      <div className="topMainMenuContainer" id="mainMenu">
         <div className="homeTextTop">LET THE GOOD DRINKS FLOW!</div>
 
         {/* SEARCH */}

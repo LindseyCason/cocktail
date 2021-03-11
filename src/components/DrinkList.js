@@ -28,7 +28,7 @@ export const DrinkList = () => {
         });
     } else {
       axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/${alc}${url}`)
+        .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${url}`)
         .then((res) => {
           console.log("HIT IN ALC", res);
 

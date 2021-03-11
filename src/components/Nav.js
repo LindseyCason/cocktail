@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, Segment, Button } from "semantic-ui-react";
+import { Hamburger } from "./Hamburger";
 
 export const Nav = () => {
   return (
@@ -14,17 +15,18 @@ export const Nav = () => {
           className="logo"
           alt="flamingo-logo3"
         />
-        <div className="navText">SWIZZLE HUB</div>
-        <a href="/random">
-          <button className="navButton" color="google plus">
-            RANDOM DRINK
-          </button>
+        <a href="/">
+          <div className="navText">SWIZZLE HUB</div>
+        </a>
+
+        {/* <a href="/random">
+          <button className="navButton">RANDOM DRINK</button>
         </a>
         <a href="/">
-          <button className="navButton" color="google plus">
-            HOME
-          </button>
-        </a>
+          <button className="navButton">HOME</button>
+        </a> */}
+
+        <Hamburger />
       </div>
     </>
   );
