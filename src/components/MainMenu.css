@@ -1,0 +1,394 @@
+/* font-family: 'Rammetto One', cursive; */
+/* font-family: 'Gravitas One', cursive; */
+
+
+/* breakpoints 1280, 1024, 768, 480 */
+/* body{
+    background: linear-gradient(#00FFD1, #FF00E5);
+
+} */
+   .topMainMenuContainer{
+        height: 400px;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .homeTextTop{
+        font-family: 'Rammetto One';
+        margin-top: 100px;        
+        color:white;
+        font-size: 3rem;
+        width: 100%;
+        text-align: center;
+    }
+
+ .searchDiv{
+    color: #00FFD1;
+    text-align: center;
+    padding: 50px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchText{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 15px;
+    font-size: 1.75rem;
+
+}
+
+.mainMenu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width:95%;
+    padding: 30px;
+    margin:auto;
+    background: linear-gradient(#00FFD1, #FF00E5);
+    border-radius: 20px;
+    box-shadow: inset 0px 5px 30px 0px #000000;        
+    }
+.cardContainer{
+    background: linear-gradient(#00FFD1, #FF00E5);
+
+}
+.cardBox{
+    border-radius: 15px;
+    background:linear-gradient(#00FFD1, #FF00E5, #000);
+    height: 350px;
+    padding-top: 15px;
+    box-shadow: inset 0px 5px 30px 0px #000000;
+    color: #fff;
+    padding: 10px;
+    transition: .35s;
+    
+}
+.cardBox:hover{
+    color: rgb(255, 255, 255);
+    background-color: #FF00E5;
+}
+.cardContent{
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-top: 5px;
+    font-family: 'RocknRoll One', sans-serif;
+    max-width: 250px;
+    border-top: 1px solid rgba(0, 0, 0, 0.295);
+}
+.cardImage{
+    max-width: 250px;
+    border-radius: 15px;
+}
+a:hover{
+    color:#000000
+}
+
+
+/* NAVIGATION */ 
+
+
+
+
+
+
+
+.hamMenu{
+    visibility: visible;
+    height: 50px;
+    width: 50px;
+}
+.hamburgerMenuShow{
+      visibility: visible;
+      position: absolute;
+      top: 90px;
+      right: 0;
+      border-radius: 20px 0px 0px 20px;
+      width: 30%;
+      background-color: #FF00E5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      box-shadow: inset 2px -5px 10px 1px #000000;
+      /* transform: scale(1); */
+      animation: 3s ease-in;
+            
+
+        }
+
+.hamburgerMenuHidden{
+  visibility: hidden;
+}
+.hamLink{
+  margin: 0;
+  padding: 10px;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 900;
+}
+.hamIcon{
+  color:rgb(255, 0, 242);
+  font-size: 50px;
+  position: absolute;
+  right: 80px;
+  top:20px;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+.NavContainer{        
+    border-radius: 0px 0px 20px 20px;
+    background-color: rgba(133, 133, 133, 0.55);
+    box-shadow: 0px 0px 10px 5px rgba(128, 128, 128, 0.411);
+    top:0;           
+    margin: auto;
+    height: 90px;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+        
+    }
+    .hamMenu{
+        transform: scale(20%);
+        transition-duration: infinite;
+    }
+
+/* .navButton{
+    margin: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    color:#00d595;
+    font-weight: 900;
+    font-size: large;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(227, 3, 189);
+    border-radius: 5px;
+    border: none;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+} */
+
+.navText{
+    font-size: 2rem;
+    color: #00FFD1;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Rammetto One';
+    position: absolute;
+    left:120px;
+    top: 30px
+}
+
+.logo{
+    height: 80px;
+    left:50px;
+    position: absolute;
+}
+
+
+
+.drinkName{font-size: 2vh;
+    padding: 5px 0px;
+    text-align: center;
+    color: aliceblue;
+}
+.menuCard{
+    background-color: black;
+    border-radius: 3px;
+    padding:10px;
+    margin:10px;
+    width: 20vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+input{
+    background-color: rgba(0, 0, 0, 0.79);
+    height: 50px;
+    color: white;
+    z-index: 90;
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 4px;
+
+}
+::placeholder{
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: medium;
+    font-weight: 900;
+}
+.searchButton{
+    margin: 10px;
+    font-family: 'Gravitas One', sans-serif;
+    color: #00d595;
+    font-size: large;
+    width: 180px;
+    height: 50px;
+    background-color: #e303bd;
+    border-radius: 5px;
+    border: none;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+
+.footContainer{
+bottom:0;
+width: 95%;
+height: 70px;
+z-index: 10;
+margin: auto;
+margin-top: 50px;
+display: flex;
+justify-content: center;
+text-align: center;
+border-radius: 20px 20px 0px 0px;
+box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.536);
+}
+
+.footerIcon{
+color:white;
+font-size: 50px;
+padding-top: 10px;
+}
+
+
+   /* MEDIA QUERIES */
+
+@media screen and (max-width: 770px) {
+.topMainMenuContainer{
+height: 400px;
+display: flex;
+flex-direction: column;
+/* flex-wrap: wrap; */
+justify-content: center;
+align-items: center;
+
+}
+.homeTextTop{
+    max-width: 450px;
+    line-height: 35px;
+    margin: 0;
+    
+}
+.searchDiv {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavContainer{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width: 95%;
+height:90px
+}
+
+.navButtons{
+    position: absolute;
+    /* right:100px  */
+}
+.searchText{
+    max-width: 550px;
+}
+.searchDiv{
+    width: 550px;
+    padding: 20px;
+}
+}
+
+
+  /* MOBILE */
+
+  @media screen and (max-width: 500px){
+      .topMainMenuContainer{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .searchDiv{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center; 
+          height: 35vh;
+          top: 200px;   
+      }
+      .homeTextTop{
+        max-width: 350px;
+        line-height: 35px;        
+    }
+
+      /* .cardContainer{
+          margin-bottom: 160px;
+      } */
+      .NavContainer{
+          height: 90px;
+
+      }
+      .navButtons{
+          visibility:hidden;
+      }
+      .navText{
+          max-width: 200px;
+          line-height: 25px;
+          text-align: left;
+          top:10px;
+          left: 100px;
+      }
+      .logo{
+          text-align: left;
+          left: 20px
+      }
+      .hamMenu{
+          visibility: visible;
+      }
+      .hamburgerMenuShow{
+            visibility: visible;
+            position: absolute;
+            top: 90px;
+            right: 0;
+            border-radius: 20px 0px 0px 20px;
+            width: 60%;
+            background-color: #FF00E5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            box-shadow: inset 2px -5px 10px 1px #000000;        
+
+              }
+
+      .hamburgerMenuHidden{
+        visibility: hidden;
+      }
+      .hamLink{
+        margin: 0;
+        padding: 10px;
+        color: black;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 900;
+    }
+      .hamIcon{
+        color:rgb(255, 0, 242);
+        font-size: 50px;
+        position: absolute;
+        right: 20px;
+        top:20px      }
+  }

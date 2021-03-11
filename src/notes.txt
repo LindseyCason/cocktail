@@ -1,3 +1,23 @@
+API{
+    "random":
+    https://www.thecocktaildb.com/api/json/v1/1/random.php,
+
+    "ingredient search":
+    https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=rum,
+    
+    "cocktail details by id":
+    https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007,
+
+    "ingredient options":
+    "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
+
+    "glasses list":
+    "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
+}
+
+
+
+Drink Details by ID
 {
 "drinks": [
 {
