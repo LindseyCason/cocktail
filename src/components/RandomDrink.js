@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./CardItem.css";
-import { DrinkDetails } from "../components/DrinkDetails";
-import { Link, withRouter, Route } from "react-router-dom";
+import "./MainMenu.css";
 import {
   Dimmer,
   Loader,
@@ -12,7 +10,6 @@ import {
   Header,
   Modal,
   List,
-  Transition,
 } from "semantic-ui-react";
 import { MainMenu } from "../components/MainMenu";
 
@@ -20,12 +17,6 @@ export const RandomDrink = (props) => {
   const [isLoading, setLoading] = useState(true);
   const [newDrink, setNewDrink] = useState({});
   const [open, setOpen] = React.useState(true);
-  const [tran, setTran] = useState({
-    animation: "jiggle",
-    duration: 500,
-    visible: true,
-  });
-
   let x;
   let ingredientsArray = [];
   let measurementArray = [];
@@ -44,9 +35,11 @@ export const RandomDrink = (props) => {
     axios
       .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .then((res) => {
-        console.log("Rando Drink:", res);
         setNewDrink(res.data.drinks[0]);
         setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -61,9 +54,6 @@ export const RandomDrink = (props) => {
       </Segment>
     );
   }
-  console.log(newDrink);
-
-  //   open ? null : window.history.push("/");
 
   return (
     <>

@@ -1,9 +1,8 @@
 import "./App.css";
 import { DrinkList } from "./components/DrinkList";
-import { DrinkDetails } from "./components/DrinkDetails";
+import { DrinkDetails } from "./components/DrinkDetailsModal";
 import { RandomDrink } from "./components/RandomDrink";
 import { Nav } from "./components/Nav";
-import { Footer } from "./components/Footer";
 import { MainMenu } from "./components/MainMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -53,7 +52,7 @@ function App() {
             <DrinkList />
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { DrinkCard } from "./DrinkCard";
 import "./MainMenu.css";
 import { Dimmer, Loader, Segment } from "semantic-ui-react";
+import { Footer } from "./Footer";
 
 //THIS IS FOR THE LIST OF DRINK PER TYPE
 export const DrinkList = () => {
@@ -21,20 +22,23 @@ export const DrinkList = () => {
           `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
         )
         .then((res) => {
-          console.log("HIT IN NON", res);
           let info = res.data.drinks;
           setDrinks(info);
           setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } else {
       axios
         .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${url}`)
         .then((res) => {
-          console.log("HIT IN ALC", res);
-
           let info = res.data.drinks;
           setDrinks(info);
           setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   }, []);
@@ -50,18 +54,21 @@ export const DrinkList = () => {
   }
 
   return (
-    <div className="cardContainer">
-      {drinks.map((drink) => {
-        return (
-          <DrinkCard
-            name={drink.strDrink}
-            img={drink.strDrinkThumb}
-            id={drink.idDrink}
-            url={url}
-            type="2"
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="cardContainer">
+        {drinks.map((drink) => {
+          return (
+            <DrinkCard
+              name={drink.strDrink}
+              img={drink.strDrinkThumb}
+              id={drink.idDrink}
+              url={url}
+              type="2"
+            />
+          );
+        })}
+      </div>
+      <Footer />
+    </>
   );
 };

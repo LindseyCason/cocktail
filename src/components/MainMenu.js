@@ -5,6 +5,7 @@ import "../images/random-Medium.png";
 import { Search } from "./Search";
 import { FaAngleDoubleDown, FaSearch } from "react-icons/fa";
 import { DrinkCard } from "./DrinkCard";
+import { Footer } from "./Footer";
 export const MainMenu = () => {
   const [search, setSearch] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -19,17 +20,6 @@ export const MainMenu = () => {
     e.preventDefault();
     setSearch(search);
     setLoading(false);
-    console.log("inside the submit function on main menu ", search);
-  };
-
-  const checkSubmit = (e) => {
-    //it triggers by pressing the enter key
-    let key = e;
-    console.log(key);
-    if (key === 13) {
-      handleSubmit();
-      console.log("ENTER");
-    }
   };
 
   if (!isLoading) {
@@ -100,6 +90,7 @@ export const MainMenu = () => {
           <div className="cardContent">Random</div>
         </div> */}
       </div>
+      <Footer />
     </>
   );
 };

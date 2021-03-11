@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import "./CardItem.css";
+import "./MainMenu.css";
 import {
   Dimmer,
   Loader,
@@ -17,8 +17,6 @@ import { MainMenu } from "./MainMenu";
 
 export const DrinkDetails = (props) => {
   const url = useLocation().pathname.split("/")[1];
-  console.log(url);
-  // console.log("drink details", props);
   const [isLoading, setLoading] = useState(true);
   const [newDrink, setNewDrink] = useState({});
   const [open, setOpen] = React.useState(true);
@@ -30,33 +28,35 @@ export const DrinkDetails = (props) => {
   let val = Object.values(newDrink);
 
   for (x in key) {
-    if (key[x].includes("strIngredient") && val[x] != null) {
+    if ((key[x].includes("strIngredient") && val[x] != null) || "") {
       ingredientsArray.push(val[x]);
-    } else if (key[x].includes("strMeasure") && val[x] != null) {
+    } else if ((key[x].includes("strMeasure") && val[x] != null) || "") {
       measurementArray.push(val[x]);
     }
   }
 
   useEffect(() => {
-    let non = "filter.php?a=";
-    let alc = "lookup.php?i=";
     if (url === "Non-Alcoholic") {
       axios
         .get(
           `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"}`
         )
         .then((res) => {
-          console.log("Drink Tings:", res);
           setNewDrink(res.data.drinks);
           setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } else {
       axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/${alc}${url}`)
+        .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${url}`)
         .then((res) => {
-          console.log("Drink Tings:", res);
           setNewDrink(res.data.drinks[0]);
           setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   }, []);
@@ -70,16 +70,10 @@ export const DrinkDetails = (props) => {
               POURING IT UP!
             </Loader>
           </Dimmer>
-          {/* <Image src="https://specials-images.forbesimg.com/imageserve/5e7e4380f40ef500079f869b/960x0.jpg?fit=scale" />
-        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
-        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" /> */}
-
-          {/* <Loader active inline="centered" /> */}
         </Segment>
       </>
     );
   }
-  console.log(newDrink);
 
   return (
     <>
@@ -107,15 +101,17 @@ export const DrinkDetails = (props) => {
               <p>
                 <p>
                   {ingredientsArray.map((ing) => {
-                    return (
-                      <img
-                        src={
-                          "https://www.thecocktaildb.com/images/ingredients/" +
-                          ing +
-                          "-Small.png"
-                        }
-                      />
-                    );
+                    if (ing !== "") {
+                      return (
+                        <img
+                          src={
+                            "https://www.thecocktaildb.com/images/ingredients/" +
+                            ing +
+                            "-Small.png"
+                          }
+                        />
+                      );
+                    }
                   })}
                 </p>
 

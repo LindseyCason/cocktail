@@ -1,9 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./CardItem.css";
-import { DrinkDetails } from "./DrinkDetails";
-import { Link } from "react-router-dom";
-import { Card, Icon, Image } from "semantic-ui-react";
+import React from "react";
+import "./MainMenu.css";
 
 export const DrinkCard = (props) => {
   let url;
@@ -22,5 +18,3 @@ export const DrinkCard = (props) => {
     </a>
   );
 };
-
-//I NEED TO GET THE ID TO THE CARD
