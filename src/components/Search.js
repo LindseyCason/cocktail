@@ -43,7 +43,7 @@ export const Search = (props) => {
                 setLoading(false);
                 setIsError(0);
                 console.log("ER", isError);
-                setE("No Ingredient or Drink Found");
+                setE("No drink or ingredient found!");
               } else {
                 let info = res.data.drinks;
                 console.log("RESULTS", info);
@@ -57,7 +57,6 @@ export const Search = (props) => {
           console.log("ingredient search hit ", info);
           setDrinks(info);
           setIsError(1);
-
           setLoading(false);
         }
       });

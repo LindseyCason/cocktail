@@ -17,6 +17,8 @@ import { MainMenu } from "./MainMenu";
 
 export const DrinkDetails = (props) => {
   const url = useLocation().pathname.split("/")[1];
+  console.log(url);
+  // console.log("drink details", props);
   const [isLoading, setLoading] = useState(true);
   const [newDrink, setNewDrink] = useState({});
   const [open, setOpen] = React.useState(true);
@@ -36,13 +38,27 @@ export const DrinkDetails = (props) => {
   }
 
   useEffect(() => {
-    axios
-      .get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + url)
-      .then((res) => {
-        console.log("Drink Tings:", res);
-        setNewDrink(res.data.drinks[0]);
-        setLoading(false);
-      });
+    let non = "filter.php?a=";
+    let alc = "lookup.php?i=";
+    if (url === "Non-Alcoholic") {
+      axios
+        .get(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"}`
+        )
+        .then((res) => {
+          console.log("Drink Tings:", res);
+          setNewDrink(res.data.drinks);
+          setLoading(false);
+        });
+    } else {
+      axios
+        .get(`https://www.thecocktaildb.com/api/json/v1/1/${alc}${url}`)
+        .then((res) => {
+          console.log("Drink Tings:", res);
+          setNewDrink(res.data.drinks[0]);
+          setLoading(false);
+        });
+    }
   }, []);
 
   if (isLoading) {
@@ -74,7 +90,7 @@ export const DrinkDetails = (props) => {
       >
         <Modal.Header>{newDrink.strDrink}</Modal.Header>
         <Modal.Content image>
-          <Image size="medium" src={newDrink.strDrinkThumb} wrapped />
+          <Image size="small" src={newDrink.strDrinkThumb} wrapped />
           <Modal.Description>
             <Header>Here's what you'll need...</Header>
 

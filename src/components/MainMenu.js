@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useParams } from "react-router-dom";
 import { DrinkMenu } from "../data/DrinkMenu";
-import { DrinkList } from "./DrinkList";
-import { Card, Image, Segment, Button } from "semantic-ui-react";
 import "./MainMenu.css";
 import "../images/random-Medium.png";
 import { Search } from "./Search";
 import { FaAngleDoubleDown, FaSearch } from "react-icons/fa";
+import { DrinkCard } from "./DrinkCard";
 export const MainMenu = () => {
   const [search, setSearch] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -41,78 +38,67 @@ export const MainMenu = () => {
 
   return (
     <>
-      <img
-        className="homeImage"
-        src="https://i.pinimg.com/originals/15/aa/a1/15aaa168198dc23de0a2fb1edacc4a8a.jpg"
-      />
       <div className="topMainMenuContainer">
-        <div className="welcome">
-          WELCOME!
-          <div className="welcomeText">
-            Search any ingredient on the right, scroll down for some quick
-            options or choose a random drink! Cheers!<p></p>
-          </div>
-        </div>
+        <div className="homeTextTop">LET THE GOOD DRINKS FLOW!</div>
 
-        {/* search */}
-        <div className="searchDiv">
-          {/* <div className="searchText" onKeyUp={checkSubmit}>
-          </div> */}
+        {/* SEARCH */}
+        <form className="searchDiv" onSubmit={handleSubmit}>
+          <div className="searchText">Search for a drink or an ingredient.</div>
           <input
             className="searchBox"
             type="text"
             value={search}
-            placeholder="Ingredient Search"
+            placeholder="Search"
             onChange={handleInputChange}
           />
           <button
+            type="submit"
             className="searchButton"
-            color="google plus"
             href={`/${search}`}
             onClick={handleSubmit}
           >
             <FaSearch />
           </button>
-        </div>
-        {/* end search */}
+        </form>
       </div>
 
-      <div className="iconContainer">
-        <div className="iconImage">
-          <FaAngleDoubleDown className="downArrow" />
-        </div>
-      </div>
+      {/* MENU OF CARDS */}
       <div className="mainMenu">
         {DrinkMenu.map((drink) => {
+          let srcurl;
+          if (drink.url == "non_alcoholic") {
+            srcurl =
+              "https://www.thecocktaildb.com/images/ingredients/Cherry%20Cola.png";
+          } else if (drink.url == "random") {
+            srcurl =
+              "https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg";
+          } else {
+            srcurl =
+              "https://www.thecocktaildb.com/images/ingredients/" +
+              drink.url +
+              "-Medium.png";
+          }
           return (
-            <Card href={drink.url} className="cardBox">
-              <Image
-                src={
-                  "https://www.thecocktaildb.com/images/ingredients/" +
-                  drink.url +
-                  "-Medium.png"
-                }
-                wrapped
-                ui={false}
-              />
-              <Card.Content>
-                <Card.Header>{drink.type}</Card.Header>
-              </Card.Content>
-            </Card>
+            <DrinkCard
+              href={"/" + drink.url}
+              url={drink.url}
+              className="cardBox"
+              id={drink.id}
+              img={srcurl}
+              name={drink.type}
+              type="1"
+            />
           );
         })}
 
-        <Card href={"random"} className="cardBox">
-          <Image
+        {/* <a href={"random"} className="cardBox"></a>
+        <div href={"/random"} className="cardBox">
+          <img
             src={"https://purepng.com/public/uploads/large/drinks-wra.png"}
-            className="ranImg"
-            wrapped
-            ui={false}
+            className="cardImage"
           />
-          <Card.Content>
-            <Card.Header>Random</Card.Header>
-          </Card.Content>
-        </Card>
+          <div className="cardContent">Random</div>
+        </div> */}
       </div>
     </>
   );

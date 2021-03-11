@@ -13,6 +13,7 @@ import {
   List,
 } from "semantic-ui-react";
 import { DrinkMenu } from "../data/DrinkMenu";
+import { MainMenu } from "./MainMenu";
 
 export const ErrorModal = (props) => {
   const [open, setOpen] = useState(true);
@@ -24,7 +25,7 @@ export const ErrorModal = (props) => {
         onOpen={() => setOpen(true)}
         open={open} //this leaves it open
       >
-        <Modal.Header>OOOPS!</Modal.Header>
+        <Modal.Header>Womp, Womp!</Modal.Header>
         <Modal.Content image>
           <Image
             size="medium"
@@ -35,7 +36,8 @@ export const ErrorModal = (props) => {
           />
           <Modal.Description>
             <Header>{props.error}</Header>
-            Choose a random drink or start over below!
+            There was no drink found with that ingredient or by that name. Give
+            the random drink button a whirl or start over below!
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
@@ -48,7 +50,7 @@ export const ErrorModal = (props) => {
             className="bttnClock"
           />
           <Button
-            content="TAKE ME DRUNK I'M HOME"
+            content="TAKE ME DRUNK, I'M HOME"
             labelPosition="right"
             icon="home"
             onClick={() => setOpen(false)}
@@ -57,6 +59,7 @@ export const ErrorModal = (props) => {
           />{" "}
         </Modal.Actions>
       </Modal>
+      <MainMenu />
     </>
   );
 };

@@ -5,8 +5,7 @@ import { RandomDrink } from "./components/RandomDrink";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { MainMenu } from "./components/MainMenu";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { ErrorModal } from "./components/ErrorModal";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -42,6 +41,9 @@ function App() {
             <DrinkList />
           </Route>
           <Route path="/tequila">
+            <DrinkList />
+          </Route>
+          <Route path="/non-alcoholic">
             <DrinkList />
           </Route>
           <Route path="/:id">

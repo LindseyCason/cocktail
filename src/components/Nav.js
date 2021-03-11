@@ -8,16 +8,13 @@ export const Nav = () => {
     //   <Link to="/">Menu</Link>
     // </div>
     <>
-      <a href="/" className="logo">
-        <img
-          src="https://i.ibb.co/ZfxfDks/flamingo-logo-round.png"
-          alt="flamingo-logo-round"
-          border="0"
-          className="logo"
-        ></img>{" "}
-      </a>
-
       <div className="NavContainer">
+        <img
+          src="https://i.ibb.co/Yt8JQjJ/flamingo-logo3.png"
+          className="logo"
+          alt="flamingo-logo3"
+        />
+        <div className="navText">SWIZZLE HUB</div>
         <a href="/random">
           <button className="navButton" color="google plus">
             RANDOM DRINK

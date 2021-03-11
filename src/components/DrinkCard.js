@@ -6,15 +6,21 @@ import { Link } from "react-router-dom";
 import { Card, Icon, Image } from "semantic-ui-react";
 
 export const DrinkCard = (props) => {
+  let url;
+  let img;
+  if (props.type === "1") {
+    url = props.name;
+  } else {
+    url = props.id;
+  }
   return (
-    <div className="cardBox">
-      <Card href={props.id} raised="true">
-        <Image src={props.img + "/preview"} wrapped ui={false} />
-        <Card.Content>
-          <Card.Header extra>{props.name}</Card.Header>
-          <Card.Meta></Card.Meta>
-        </Card.Content>
-      </Card>
-    </div>
+    <a href={url} className="cardBox">
+      <div id={props.id} raised="true">
+        <img src={props.img} className="cardImage" wrapped ui={false} />
+        <div className="cardContent">{props.name}</div>
+      </div>
+    </a>
   );
 };
+
+//I NEED TO GET THE ID TO THE CARD
