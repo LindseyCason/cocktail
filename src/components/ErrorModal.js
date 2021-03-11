@@ -1,18 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import "./CardItem.css";
-import {
-  Dimmer,
-  Loader,
-  Image,
-  Segment,
-  Button,
-  Header,
-  Modal,
-  List,
-} from "semantic-ui-react";
-import { DrinkMenu } from "../data/DrinkMenu";
+import React, { useState } from "react";
+import "./MainMenu.css";
+import { Image, Button, Header, Modal } from "semantic-ui-react";
 import { MainMenu } from "./MainMenu";
 
 export const ErrorModal = (props) => {

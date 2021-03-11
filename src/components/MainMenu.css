@@ -27,7 +27,7 @@
     color: #00FFD1;
     text-align: center;
     padding: 50px;
-    z-index: 0;
+    /* z-index: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,6 +55,13 @@
     background: linear-gradient(#00FFD1, #FF00E5);
 
 }
+.cardContainer{
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    }
 .cardBox{
     border-radius: 15px;
     background:linear-gradient(#00FFD1, #FF00E5, #000);
@@ -63,12 +70,14 @@
     box-shadow: inset 0px 5px 30px 0px #000000;
     color: #fff;
     padding: 10px;
-    transition: .35s;
+    transition: all .35s ease;
+    margin: 15px;
+    text-align: center;
     
 }
 .cardBox:hover{
     color: rgb(255, 255, 255);
-    background-color: #FF00E5;
+    transform: scale(.95);
 }
 .cardContent{
     font-size: 1.5rem;
@@ -89,16 +98,12 @@ a:hover{
 
 /* NAVIGATION */ 
 
-
-
-
-
-
-
 .hamMenu{
     visibility: visible;
     height: 50px;
     width: 50px;
+    transform: scale(20%);
+    transition-duration: infinite;
 }
 .hamburgerMenuShow{
       visibility: visible;
@@ -129,6 +134,11 @@ a:hover{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 900;
 }
+.hamLink:hover{
+    transform: scale(.5);
+    animation: pulse 1s infinite;
+    color: #000;
+}
 .hamIcon{
   color:rgb(255, 0, 242);
   font-size: 50px;
@@ -151,24 +161,45 @@ a:hover{
     justify-content: space-around;
         
     }
-    .hamMenu{
-        transform: scale(20%);
-        transition-duration: infinite;
+
+
+    /* contact menu */
+
+    .contactMenuHidden{
+        visibility: hidden;
+    }
+    .contactMenuShow{
+        visibility: visible;
+        visibility: visible;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        border-radius: 20px 0px 0px 20px;
+        width: 30%;
+        background-color: #00FFD1;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 15px;
+        box-shadow: inset 2px -5px 10px 1px #000000;
+        transform: scale(1);
+        animation: 3s ease-in;
     }
 
-/* .navButton{
-    margin: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    color:#00d595;
-    font-weight: 900;
-    font-size: large;
-    width: 150px;
-    height: 50px;
-    background-color: rgb(227, 3, 189);
-    border-radius: 5px;
-    border: none;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
-} */
+    .conLink{
+        margin: 0;
+        padding: 10px;
+        color: black;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 900;
+        border-bottom: .5px solid black;
+      }
+      .conLink:hover{
+        transform: scale(.5);
+        animation: pulse 1s infinite;
+        color: black
+      }
+
 
 .navText{
     font-size: 2rem;
@@ -212,7 +243,6 @@ input{
     background-color: rgba(0, 0, 0, 0.79);
     height: 50px;
     color: white;
-    z-index: 90;
     width: 200px;
     padding: 5px;
     margin: 5px;
@@ -238,6 +268,20 @@ input{
     border: none;
     text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
+
+/* DRINK RECIPE CARD */
+
+.ui.modal>.actions{
+    text-align: center !important;
+}
+.bttnClock:hover {
+    transform: rotate(5deg);
+    border-color: 2px solid springgreen;    
+  }
+
+  .bttnCoClock:hover{
+    transform: rotate(-5deg);
+  }
 
 
 .footContainer{
@@ -356,12 +400,33 @@ height:90px
           text-align: left;
           left: 20px
       }
+
+      .contactMenuShow{
+        visibility: visible;
+        visibility: visible;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        border-radius: 20px 0px 0px 20px;
+        width: 60%;
+        background-color: #00FFD1;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 15px;
+        box-shadow: inset 2px -5px 10px 1px #000000;
+        transform: scale(1);
+        animation: 3s ease-in;
+        z-index: 20;
+
+      }
       .hamMenu{
           visibility: visible;
       }
       .hamburgerMenuShow{
             visibility: visible;
             position: absolute;
+            z-index: 20;
             top: 90px;
             right: 0;
             border-radius: 20px 0px 0px 20px;
