@@ -74,9 +74,9 @@ export const Hamburger = () => {
         <a href="https://github.com/LindseyCason/" className="conLink">
           <FaGithub />: My GitHub
         </a>
-        <a href="https://twitter.com/IAcceptCookies" className="conLink">
-          <FaTwitter />: @IAcceptCookies
-        </a>
+        // <a href="https://twitter.com/IAcceptCookies" className="conLink">
+        //   <FaTwitter />: @IAcceptCookies
+        // </a>
         <a hreg="https://instagram.com/wake.and.bacon" className="conLink">
           <FaInstagram />: Instagram
         </a>
